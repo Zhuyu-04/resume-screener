@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简历筛选报告 - 示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f8f8f8;
+        }
+        h1 {
+            color: #333;
+        }
+        .summary {
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .score-bar {
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 18px;
+            width: 150px;
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .score-fill {
+            background: #4CAF50;
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 简历筛选报告（示例）</h1>
+    <div class="summary">
+        <strong>总简历数：</strong>2 &nbsp;|&nbsp;
+        <strong>成功：</strong>2 &nbsp;|&nbsp;
+        <strong>失败：</strong>0
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>简历文件</th>
+                <th>状态</th>
+                <th>总分</th>
+                <th>技术技能 (40%)</th>
+                <th>工作经验 (30%)</th>
+                <th>教育背景 (20%)</th>
+                <th>证书 (10%)</th>
+                <th>错误信息</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>candidate_A.pdf</td>
+                <td class="success">success</td>
+                <td>
+                    85.5
+                    <div class="score-bar">
+                        <div class="score-fill" style="width:85.5%;"></div>
+                    </div>
+                </td>
+                <td>90</td>
+                <td>80</td>
+                <td>85</td>
+                <td>75</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>candidate_B.pdf</td>
+                <td class="success">success</td>
+                <td>
+                    72.3
+                    <div class="score-bar">
+                        <div class="score-fill" style="width:72.3%;"></div>
+                    </div>
+                </td>
+                <td>65</td>
+                <td>70</td>
+                <td>80</td>
+                <td>80</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>candidate_C.pdf（损坏文件）</td>
+                <td class="error">error</td>
+                <td>0</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>PDF 解析失败: PDF 文件已损坏</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="color:#555; margin-top:20px;">* 本报告为示例数据，展示工具的输出格式。实际运行 <code>resume_screener.py</code> 后自动生成。</p>
+</body>
+</html>

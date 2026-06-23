@@ -1,0 +1,32 @@
+[
+  {
+    "file": "sample_resumes/candidate_A.pdf",
+    "identifier": "candidate_A.pdf",
+    "status": "success",
+    "error": null,
+    "summary": {
+      "dimensions": [
+        {"name": "技术技能", "weight": 0.4, "raw_score": 90.0, "weighted_score": 36.0},
+        {"name": "工作经验", "weight": 0.3, "raw_score": 80.0, "weighted_score": 24.0},
+        {"name": "教育背景", "weight": 0.2, "raw_score": 85.0, "weighted_score": 17.0},
+        {"name": "证书", "weight": 0.1, "raw_score": 75.0, "weighted_score": 7.5}
+      ],
+      "total_score": 84.5
+    }
+  },
+  {
+    "file": "sample_resumes/candidate_B.pdf",
+    "identifier": "candidate_B.pdf",
+    "status": "success",
+    "error": null,
+    "summary": {
+      "dimensions": [
+        {"name": "技术技能", "weight": 0.4, "raw_score": 65.0, "weighted_score": 26.0},
+        {"name": "工作经验", "weight": 0.3, "raw_score": 70.0, "weighted_score": 21.0},
+        {"name": "教育背景", "weight": 0.2, "raw_score": 80.0, "weighted_score": 16.0},
+        {"name": "证书", "weight": 0.1, "raw_score": 80.0, "weighted_score": 8.0}
+      ],
+      "total_score": 71.0
+    }
+  }
+]

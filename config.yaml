@@ -1,0 +1,43 @@
+# 评分维度配置 —— 可自由增删维度、修改权重与匹配规则
+dimensions:
+  - name: "技术技能"
+    weight: 0.4
+    keywords:
+      - "python"
+      - "java"
+      - "javascript"
+      - "sql"
+      - "docker"
+      - "kubernetes"
+      - "machine learning"
+      - "deep learning"
+      - "data analysis"
+      - "aws"
+      - "azure"
+      - "git"
+    regex_patterns:
+      - "\\bpython\\b"
+      - "\\bjava\\b"
+  - name: "工作经验"
+    weight: 0.3
+    keywords:
+      - "experience"
+      - "work"
+      - "project"
+    regex_patterns:
+      - "\\d+[+]?\\s*years?\\s*(of)?\\s*experience"   # 如 "5+ years of experience"
+  - name: "教育背景"
+    weight: 0.2
+    keywords:
+      - "bachelor"
+      - "master"
+      - "phd"
+      - "degree"
+      - "university"
+  - name: "证书"
+    weight: 0.1
+    keywords:
+      - "certified"
+      - "certification"
+      - "aws certified"
+      - "pmp"
