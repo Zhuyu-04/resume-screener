@@ -79,6 +79,10 @@ def calculate_scores(
     """
     遍历所有维度计算得分，返回包含各维度得分、加权总分、归一化总分的字典。
     """
+    # 校验权重和是否为 1
+    weight_sum = sum(float(d.get("weight", 0)) for d in dimensions)
+    if abs(weight_sum - 1.0) > 0.001:
+        logger.warning("维度权重之和为 %.3f，建议调整为 1.0，否则总分可能失真", weight_sum)
     dim_results = []
     raw_total = 0.0
     for dim in dimensions:
