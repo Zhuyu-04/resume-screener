@@ -1,7 +1,7 @@
 # 评分维度配置 —— 可自由增删维度、修改权重与匹配规则
 dimensions:
   - name: "技术技能"
-    weight: 0.4
+    weight: 0.3
     keywords:
       - "python"
       - "java"
