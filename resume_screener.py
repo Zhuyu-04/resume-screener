@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any
 import pdfplumber
 import yaml
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from jinja2 import Template
 # -------------------- 日志配置 --------------------
 logging.basicConfig(
@@ -73,6 +75,15 @@ def score_dimension(text: str, dimension: Dict[str, Any]) -> float:
     # 归一化，最多给 100 分（多次命中不代表翻倍）
     score = min(100.0, (total_hits / total_items) * 100)
     return round(score, 2)
+def tfidf_similarity(resume_text: str, target_description: str) -> float:
+    """计算简历文本与目标岗位描述的 TF-IDF 余弦相似度 (0~100)"""
+    tfidf = TfidfVectorizer(stop_words='english')
+    try:
+        tfidf_matrix = tfidf.fit_transform([resume_text, target_description])
+        sim = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+        return round(sim * 100, 2)
+    except ValueError:
+        return 0.0
 def calculate_scores(
     text: str, dimensions: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
@@ -88,6 +99,9 @@ def calculate_scores(
     for dim in dimensions:
         name = dim.get("name", "Unnamed")
         weight = float(dim.get("weight", 0))
+    if "tfidf_target" in dim:
+        raw_score = tfidf_similarity(text, dim["tfidf_target"])
+    else:
         raw_score = score_dimension(text, dim)
         weighted = raw_score * weight
         dim_results.append(

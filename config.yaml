@@ -41,3 +41,7 @@ dimensions:
       - "certification"
       - "aws certified"
       - "pmp"
+  - name: "岗位匹配度 (TF-IDF)"
+    weight: 0.1
+    tfidf_target: |
+      我们正在寻找一名 Python 后端工程师，要求熟练掌握 Python、Django/Flask，熟悉 PostgreSQL、Redis，了解 Docker 和 CI/CD 流程，并具备良好的团队协作能力。
