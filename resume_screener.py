@@ -101,7 +101,7 @@ def calculate_scores(
         raw_total += weighted
     # 归一化到 0-100（确保总分最高 100）
     total_weight = sum(float(d.get("weight", 0)) for d in dimensions)
-    normalized_total = round((raw_total / total_weight * 100), 2) if total_weight > 0 else 0.0
+    normalized_total = round((raw_total / total_weight), 2) if total_weight > 0 else 0.0
     return {
         "dimensions": dim_results,
         "total_score": normalized_total,
