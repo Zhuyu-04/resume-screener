@@ -99,20 +99,20 @@ def calculate_scores(
     for dim in dimensions:
         name = dim.get("name", "Unnamed")
         weight = float(dim.get("weight", 0))
-    if "tfidf_target" in dim:
-        raw_score = tfidf_similarity(text, dim["tfidf_target"])
-    else:
-        raw_score = score_dimension(text, dim)
-        weighted = raw_score * weight
-        dim_results.append(
-            {
-                "name": name,
-                "weight": weight,
-                "raw_score": raw_score,
-                "weighted_score": round(weighted, 2),
-            }
-        )
-        raw_total += weighted
+        if "tfidf_target" in dim:
+            raw_score = tfidf_similarity(text, dim["tfidf_target"])
+        else:
+            raw_score = score_dimension(text, dim)
+            weighted = raw_score * weight
+            dim_results.append(
+                {
+                    "name": name,
+                    "weight": weight,
+                    "raw_score": raw_score,
+                    "weighted_score": round(weighted, 2),
+                }
+            )
+            raw_total += weighted
     # 归一化到 0-100（确保总分最高 100）
     total_weight = sum(float(d.get("weight", 0)) for d in dimensions)
     normalized_total = round((raw_total / total_weight), 2) if total_weight > 0 else 0.0
